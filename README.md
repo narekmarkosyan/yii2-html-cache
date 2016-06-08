@@ -24,7 +24,7 @@ Add following to your `components` in configs
 Add following code at the beginning of `beforeAction` method in your controller
 
 ```php
-Yii::app()->htmlcache->loadFromCache($this, $action);
+Yii::$app->htmlcache->loadFromCache($this, $action);
 ```
 
 Where `$action` is a first parameter of `beforeAction`. Or if you don't have `beforeAction` add the following code to your controller
@@ -36,7 +36,7 @@ Where `$action` is a first parameter of `beforeAction`. Or if you don't have `be
  */
 protected function beforeAction($action)
 {
-    Yii::app()->htmlcache->loadFromCache($this, $action);
+    Yii::$app->htmlcache->loadFromCache($this, $action);
  
     return parent::beforeAction($action);
 }
@@ -45,7 +45,7 @@ protected function beforeAction($action)
 Add the following code at the end of `renderContent` method in your controller
 
 ```php
-$output = Yii::app()->htmlcache->saveToCache($this, $this->action, $output);
+$output = Yii::$app->htmlcache->saveToCache($this, $this->action, $output);
 ```
 
 Where `$output` is a first parameter of `renderContent`. Or if you don't have `renderContent` add the following code to your controller
@@ -107,11 +107,11 @@ In view
 In `beforeAction` method of your controller
 
 ```PHP
-    Yii::app()->htmlcache->directReplace("DATE_PLACEHOLDER", date("Y-m-d H:i:s"));
+    Yii::$app->htmlcache->directReplace("DATE_PLACEHOLDER", date("Y-m-d H:i:s"));
     
     // OR
     
-    Yii::app()->htmlcache->directReplace(array("DATE_PLACEHOLDER"=> date("Y-m-d H:i:s")));
+    Yii::$app->htmlcache->directReplace(array("DATE_PLACEHOLDER"=> date("Y-m-d H:i:s")));
 ```
 
 > NOTE: placeholder always needs to be UPPERCASE and in {BRACES}
@@ -130,11 +130,11 @@ Adding action to the list of excluded actions.
 In `beforeAction` method of your controller
 
 ```PHP
-    Yii::app()->htmlcache->excludeActions($this, "my_action");
+    Yii::$app->htmlcache->excludeActions($this, "my_action");
     
     // OR
     
-    Yii::app()->htmlcache->excludeActions($this, array("my_action", "my_other_action"));
+    Yii::$app->htmlcache->excludeActions($this, array("my_action", "my_other_action"));
 ```
 
 ## allowActions
@@ -151,15 +151,15 @@ Removes action from excluded actions list.
 In `beforeAction` method of your controller
 
 ```PHP
-    Yii::app()->htmlcache->allowActions($this, "my_action");
+    Yii::$app->htmlcache->allowActions($this, "my_action");
     
     // OR
     
-    Yii::app()->htmlcache->allowActions($this, array("my_action", "my_other_action"));
+    Yii::$app->htmlcache->allowActions($this, array("my_action", "my_other_action"));
     
     // OR
     
-    Yii::app()->htmlcache->allowActions($this, null); // Removes all actions of this controller
+    Yii::$app->htmlcache->allowActions($this, null); // Removes all actions of this controller
 ```
 
 ## excludeParams
@@ -176,15 +176,15 @@ Adding params to the list of excluded params.
 In `beforeAction` method of your controller
 
 ```PHP
-    Yii::app()->htmlcache->excludeParams($this, "my_action"); // Disable cache if $this->my_action != false
+    Yii::$app->htmlcache->excludeParams($this, "my_action"); // Disable cache if $this->my_action != false
     
     // OR
     
-    Yii::app()->htmlcache->excludeParams($this, array("my_action" => 1)); // Disable cache if $this->my_action == 1
+    Yii::$app->htmlcache->excludeParams($this, array("my_action" => 1)); // Disable cache if $this->my_action == 1
     
     // OR
     
-    Yii::app()->htmlcache->excludeParams($this, array("my_action" => array(1, 2))); // Disable cache if $this->my_action == 1 OR $this->my_action == 2
+    Yii::$app->htmlcache->excludeParams($this, array("my_action" => array(1, 2))); // Disable cache if $this->my_action == 1 OR $this->my_action == 2
 ```
 
 ## allowParams
@@ -201,19 +201,19 @@ Removes params from the list of excluded params
 In `beforeAction` method of your controller
 
 ```PHP
-    Yii::app()->htmlcache->allowParams($this, "my_action"); // Removes all mentions of my_action of this controller if exsists
+    Yii::$app->htmlcache->allowParams($this, "my_action"); // Removes all mentions of my_action of this controller if exsists
     
     // OR
     
-    Yii::app()->htmlcache->allowParams($this, array("my_action" => 1)); // Removes my_action == 1 mention from this controller if exsists
+    Yii::$app->htmlcache->allowParams($this, array("my_action" => 1)); // Removes my_action == 1 mention from this controller if exsists
     
     // OR
     
-    Yii::app()->htmlcache->allowParams($this, array("my_action" => array(1, 2))); // Removes my_action == 1 OR my_action == 1 mentions from this controller if exsists
+    Yii::$app->htmlcache->allowParams($this, array("my_action" => array(1, 2))); // Removes my_action == 1 OR my_action == 1 mentions from this controller if exsists
     
     // OR
     
-    Yii::app()->htmlcache->allowParams($this, null); // Removes ALL excluded params of this controller
+    Yii::$app->htmlcache->allowParams($this, null); // Removes ALL excluded params of this controller
 ```
 
 # FAQ
