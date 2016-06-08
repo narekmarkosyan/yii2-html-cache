@@ -6,6 +6,20 @@ Yii2 HTML Cache generates cache file with FULL HTML of your action from `DOCTYPE
 
 # Instalation
 
+Run
+
+```
+$ php composer.phar require narekmarkosyan/yii2-html-cache "dev-master"
+```
+
+or add
+
+```
+    "narekmarkosyan/yii2-html-cache": "dev-master"
+```
+
+to `require` section of your `composer.json`.
+
 Add following to your `components` in configs
  
 ```php
