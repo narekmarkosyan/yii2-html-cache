@@ -1,0 +1,34 @@
+{
+  // package name
+  "name": "narekmarkosyan/yii2-html-cache",
+
+  // package type
+  "type": "yii2-extension",
+
+  "description": "Yii2 Html Cache",
+  "keywords": ["yii2", "cache", "html"],
+  "license": "GPL-3.0",
+  "support": {
+    "issues": "https://github.com/narekmarkosyan/yii2-html-cache/issues",
+    "source": "https://github.com/narekmarkosyan/yii2-html-cache"
+  },
+  "authors": [
+    {
+      "name": "Narek Markosyan",
+      "email": "narek.markosyan@yahoo.com"
+    }
+  ],
+
+  // package dependencies
+  "require": {
+    "yiisoft/yii2": "*",
+    "narekmarkosyan/yii2-html-cache": "v1.0"
+  },
+
+  // class autoloading specs
+  "autoload": {
+    "psr-4": {
+      "yii\\yii2-html-cache\\": ""
+    }
+  }
+}
