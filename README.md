@@ -3,6 +3,7 @@ Yii2 HTML cache
 
 Yii2 HTML Cache generates cache file with FULL HTML of your action from `DOCTYPE` to `</html>`.
 
+**This is an extension for Yii 2.x, if you have Yii 1.x use [Yii HTML Cache](https://github.com/narekmarkosyan/yii-html-cache)**
 
 # Instalation
 
